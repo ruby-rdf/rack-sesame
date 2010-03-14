@@ -64,7 +64,7 @@ module Rack
         end
       end
 
-      def respond_with(body, headers)
+      def respond_with(body, headers = {})
         [200, {'Content-Type' => 'text/plain; charset=utf-8'}.merge(headers), body.to_s]
       end
 
