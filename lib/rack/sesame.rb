@@ -3,6 +3,7 @@ require 'rdf'
 
 module Rack
   module Sesame
-    autoload :VERSION, 'rack/sesame/version'
+    autoload :Endpoint, 'rack/sesame/endpoint'
+    autoload :VERSION,  'rack/sesame/version'
   end
 end
