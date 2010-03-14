@@ -1,5 +1,6 @@
 require 'rack'
 require 'rdf'
+require 'json'
 
 module Rack
   module Sesame

@@ -64,8 +64,8 @@ module Rack
         end
       end
 
-      def respond_with(body)
-        [200, {'Content-Type' => 'text/plain; charset=utf-8'}, body.to_s]
+      def respond_with(body, headers)
+        [200, {'Content-Type' => 'text/plain; charset=utf-8'}.merge(headers), body.to_s]
       end
 
       def bad_request(message = nil)
