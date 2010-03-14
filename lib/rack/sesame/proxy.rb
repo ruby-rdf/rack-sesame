@@ -16,7 +16,7 @@ module Rack
       end
 
       def protocol(env)
-        respond_with("TODO: GET /protocol")
+        respond_with(server.protocol.to_s)
       end
 
       def repositories(env)
