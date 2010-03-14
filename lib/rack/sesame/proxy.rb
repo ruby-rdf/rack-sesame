@@ -36,7 +36,7 @@ module Rack
       end
 
       def repository_size(env, repository_name)
-        respond_with("TODO: GET /repositories/#{repository_name}/size")
+        respond_with(server.repository(repository_name).count.to_s)
       end
 
       def repository_namespaces(env, repository_name)
