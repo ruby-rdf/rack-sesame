@@ -65,7 +65,17 @@ module Rack
       ##
       # `GET /repositories/:name/statements`
       def repository_statements(env, repository_name)
-        respond_with("TODO: GET /repositories/#{repository_name}/statements")
+        body = RDF::NTriples::Writer.buffer do |writer|
+          server.repository(repository_name).each_statement do |statement|
+            writer << statement
+          end
+        end
+
+        respond_with(body, {
+          'Content-Type'        => 'text/plain; charset=utf-8',
+          'Content-Disposition' => 'attachment; filename=statements.nt',
+          'Vary'                => 'accept',
+        })
       end
 
       ##
