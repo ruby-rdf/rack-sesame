@@ -81,7 +81,27 @@ module Rack
       ##
       # `GET /repositories/:name/contexts`
       def repository_contexts(env, repository_name)
-        respond_with("TODO: GET /repositories/#{repository_name}/contexts")
+        body = {
+          :head    => {:vars     => [:contextID]},
+          :results => {:bindings => []},
+        }
+
+        server.repository(repository_name).each_context do |context|
+          body[:results][:bindings] << {
+            :contextID => case context
+              when RDF::Node
+                {:type => :bnode, :value => context.id.to_s}
+              when RDF::URI
+                {:type => :uri,   :value => context.to_s}
+            end
+          }
+        end
+
+        respond_with(body.to_json, {
+          'Content-Type'        => 'application/sparql-results+json; charset=utf-8',
+          'Content-Disposition' => 'attachment; filename=contexts.srj',
+          'Vary'                => 'accept',
+        })
       end
 
       ##
