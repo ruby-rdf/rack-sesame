@@ -6,7 +6,7 @@ GEMSPEC = Gem::Specification.new do |gem|
   gem.date               = File.mtime('VERSION').strftime('%Y-%m-%d')
 
   gem.name               = 'rack-sesame'
-  gem.homepage           = 'http://github.com/datagraph/rack-sesame'
+  gem.homepage           = 'http://github.com/datagraph'
   gem.license            = 'Public Domain' if gem.respond_to?(:license=)
   gem.summary            = 'Sesame 2.0 HTTP API for Rack.'
   gem.description        = 'Rack middleware providing a Sesame 2.0-compatible HTTP endpoint.'
