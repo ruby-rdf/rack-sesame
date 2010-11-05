@@ -1,12 +1,11 @@
-module Rack module Sesame
+module Rack; module Sesame
   module VERSION
     MAJOR = 0
     MINOR = 0
     TINY  = 0
     EXTRA = nil
 
-    STRING = [MAJOR, MINOR, TINY].join('.')
-    STRING << "-#{EXTRA}" if EXTRA
+    STRING = [MAJOR, MINOR, TINY, EXTRA].compact.join('.')
 
     ##
     # @return [String]
@@ -20,4 +19,4 @@ module Rack module Sesame
     # @return [Array(Integer, Integer, Integer)]
     def self.to_a() [MAJOR, MINOR, TINY] end
   end
-end end
+end; end

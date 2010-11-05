@@ -96,6 +96,6 @@ module Rack
         [code, {'Content-Type' => 'text/plain; charset=utf-8'},
           message || [code, Rack::Utils::HTTP_STATUS_CODES[code]].join(' ') << "\n"]
       end
-    end
-  end
-end
+    end # Endpoint
+  end # Sesame
+end # Rack

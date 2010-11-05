@@ -132,6 +132,6 @@ module Rack
           'Vary'                => 'accept',
         })
       end
-    end
-  end
-end
+    end # Proxy
+  end # Sesame
+end # Rack
